@@ -16,17 +16,17 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Sachin-Tendulkar_%28cropped%29.jpg"/>
                 </div>
                 <div class="fsec">
-                    <h3>John Doe</h3>
-                    <h4>Bio goes here</h4>
-                    <div><h5>location</h5></div>
-                    <div><h6>Twitter</h6></div> 
+                    <h3>{name}</h3>
+                    <h4>{Bio}</h4>
+                    <div><h5>{location}</h5></div>
+                    <div><h6>{Twitter}</h6></div> 
                 </div>
             </div>
             
             <!--second part -->
             
             <div class="second">
-                <h3>github url pasted here</h3>
+                <h3>{github}</h3>
             </div>
             <!--third part-->
             <div class="third">
@@ -119,6 +119,18 @@
                 <div class="cs" id="co">Newer--></div>
             </div>
         </div>
-        <script src="" async defer></script>
+        <!-- Your existing index.html content, and include the following script at the end -->
+        <script>
+            // index.html script to extract data from URL parameters and update the content
+            window.onload = function () {
+                var params = new URLSearchParams(window.location.search);
+
+                document.querySelector('.fsec h3').textContent = params.get('name') ;
+                document.querySelector('.fsec h4').textContent = params.get('bio') ;
+                document.querySelector('.fsec h5').textContent = params.get('location') ;
+                document.querySelector('.fsec h6').textContent = params.get('twitter') ;
+                document.querySelector('.second h3').textContent = params.get('github');
+            };
+        </script>
     </body>
 </html>
